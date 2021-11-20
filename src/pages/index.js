@@ -8,9 +8,15 @@ import Seo from "../components/seo"
 const IndexPage = () => (
   <Layout>
     <Seo title="Home" />
-    <h1>Discover The Fable of Etheria</h1>
-    <p>Choose your side between the Fundation & The Alliance.</p>
-    <p>Upgrace your status and be the main character of your own story.</p>
+    <div className="Hero">
+      <div className="HeroGroup">
+        <h1>Discover The Fable of Etheria</h1>
+        <p>Choose your side between the Fundation & The Alliance.</p>
+        <p>Upgrace your status and be the main character of your own story.</p> 
+        <a href="">Watch the video</a>
+      </div>
+    </div>
+
     <StaticImage
       src="../images/gatsby-astronaut.png"
       width={300}
