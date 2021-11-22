@@ -5,11 +5,17 @@ import { StaticImage } from "gatsby-plugin-image"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 import Card from "../components/card"
+import Section from "../components/section"
+import Wave from "../components/wave"
 
 import wallpaper from "../images/wallpaper.jpg"
 import wallpaper2 from "../images/wallpaper2.jpg"
 import wallpaper3 from "../images/wallpaper3.jpg"
 import wallpaper4 from "../images/wallpaper4.jpg"
+import logoreact from "../images/logo-react.png"
+
+
+
 const IndexPage = () => (
   <Layout>
     <Seo title="home" />
@@ -19,15 +25,7 @@ const IndexPage = () => (
         <p>Choose your side between the Fundation & The Alliance.</p>
         <p>Upgrace your status and be the main character of your own story.</p> 
         <a href="">Watch the video</a>
-        <svg width="100%" height="172" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path fill="white">
-            <animate repeatCount="indefinite" fill="freeze" attributeName="d" dur="10s" values="M0 25.9086C277 84.5821 433 65.736 720 25.9086C934.818 -3.9019 1214.06 -5.23669 1442 8.06597C2079 45.2421 2208 63.5007 2560 25.9088V171.91L0 171.91V25.9086Z; 
-            M0 87.1596C316 87.1597 444 160 884 52.0001C1324 -55.9999 1320.29 34.966 1538 71.251C1814 117.251 2156 189.252 2560 87.1597V233.161L0 233.161V87.1596Z;
-            M0 53.6584C158 11.0001 213 0 363 0C513 0 855.555 115.001 1154 115.001C1440 115.001 1626 -38.0004 2560 53.6585V199.66L0 199.66V53.6584Z;
-            M0 25.9086C277 84.5821 433 65.736 720 25.9086C934.818 -3.9019 1214.06 -5.23669 1442 8.06597C2079 45.2421 2208 63.5007 2560 25.9088V171.91L0 171.91V25.9086Z; 
-            "/>
-          </path>
-        </svg>
+        <Wave/>
       </div>
     </div>
     <div className="cards">
@@ -55,6 +53,14 @@ const IndexPage = () => (
         />
       </div>
     </div>
+
+    <Section 
+      image={wallpaper4}
+      logo={logoreact}
+      title="The capital"
+      text="it is said here that our destiny is played out at birth. The people of the upper town known as the upside have the sole purpose of integrating and serving the interests of the foundation to climb the ranks and gain access to the technology and powers that go with it. In the lower town that we call downtown everything is only toxic fumes and dust here we fight every day for its survival but for some time a rumor has been running about an alliance ready to do anything to overthrow the established power and make its voice heard. of renewal."
+    />
+
   </Layout>
 )
 
