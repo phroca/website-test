@@ -2,41 +2,45 @@ import * as React from "react"
 import PropTypes from "prop-types"
 import { Link } from "gatsby"
 
-const Header = ({ siteTitle }) => (
-  <header
-    style={{
-      background: `rebeccapurple`,
-      marginBottom: `1.45rem`,
-    }}
-  >
-    <div
-      style={{
-        margin: `0 auto`,
-        maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
-      }}
-    >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: `white`,
-            textDecoration: `none`,
-          }}
-        >
-          {siteTitle}
-        </Link>
-      </h1>
-    </div>
-  </header>
-)
+import logo from "../images/logo-designcode.svg"
+import "./header.css"
 
-Header.propTypes = {
-  siteTitle: PropTypes.string,
-}
+class Header extends React.Component{
+  constructor(props){
+    super(props);
+    this.state= {
+      hasScrolled: false,
+    }
+  }
+  componentDidMount(){
+    window.addEventListener('scroll', this.handleScroll)
+  }
 
-Header.defaultProps = {
-  siteTitle: ``,
+  handleScroll = (event) => {
+    const scrollTop = window.scrollY;
+    if(scrollTop > 50){
+      this.setState({hasScrolled: true});
+    } else {
+      this.setState({hasScrolled: false});
+    }
+  }
+
+  render(){
+    return(
+      <div>
+        <div className={this.state.hasScrolled ? 'header header-scrolled' : 'header'}>
+          <div className="header-group">
+            <Link to="/"> <img src={logo} width="30" /></Link>
+            <Link to="/story">The Story</Link>
+            <Link to="/the-world">The World</Link>
+            <Link to="/the-collection">The Collection</Link>
+            <Link to="/the-team">The Team</Link>
+            <Link to="/buy"><button>Buy</button></Link>
+          </div>
+        </div>
+      </div>
+    )
+  }
 }
 
 export default Header
