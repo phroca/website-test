@@ -45,7 +45,7 @@ const IndexPage = () => (
         <h1>Discover The <br /> Fable of Etheria</h1>
         <p>Choose your side between the Fundation & The Alliance.</p>
         <p>Upgrace your status and be the main character of your own story.</p> 
-        <a href="">Watch the video</a>
+        <a href="/story">Watch the video</a>
         <Wave/>
       </div>
     </div>
@@ -86,7 +86,7 @@ const IndexPage = () => (
     <SectionCaption>12 sections - 6 hours</SectionCaption>
     <SectionCellGroup>
       {staticdata.cells.map(cell => (
-        <Cell title={cell.title} image={cell.image} />
+        <Cell key={cell.title} title={cell.title} image={cell.image} />
       ))}
     </SectionCellGroup>
   </Layout>

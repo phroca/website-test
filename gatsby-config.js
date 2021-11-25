@@ -1,12 +1,20 @@
 module.exports = {
     siteMetadata: {
         title: `The Fable of Etheria`,
-        description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
+        description: `This is the website of the Fable of Etheria, a plateform of NFT exchange in a world divided into two parts : The Fundation & The Alliance`,
         author: `@roca-it`,
-        siteUrl: `https://gatsbystarterdefaultsource.gatsbyjs.io/`,
+        siteUrl: `https://fable-of-etheria.netlify.app/`,
+        keywords: `Fable, Etheria, NFT, crypto, ethereum, bitcoin, game, video game, opensea`
     },
     plugins: [
         `gatsby-plugin-react-helmet`,
+        {
+            resolve: `gatsby-source-contentful`,
+            options: {
+                spaceId: `awwuw8052ah7`,
+                accessToken: `a9zQNVw_M-jmOUi9BukYvxjfXltTF4UaVyhWbOgMyvA`
+            },
+        },
         `gatsby-plugin-image`,
         {
             resolve: `gatsby-source-filesystem`,

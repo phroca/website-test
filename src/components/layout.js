@@ -7,35 +7,39 @@
 
 import * as React from "react"
 import PropTypes from "prop-types"
-import { useStaticQuery, graphql } from "gatsby"
 
 import Header from "./header"
 import "./layout.css"
+import { useStaticQuery, graphql } from "gatsby"
+import Footer from "./footer"
 
 const Layout = ({ children }) => {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
+  const { allContentfulLink } = useStaticQuery(
+    graphql`
+      query {
+        allContentfulLink(sort: { fields: [createdAt], order: ASC}) {
+          edges {
+            node {
+              title
+              url
+              id
+              createdAt
+            }
+          }
         }
       }
-    }
-  `)
+    `
+  )
 
+const edges = allContentfulLink.edges;
   return (
     <div>
         <Header />
         <main>{children}</main>
-        <footer
-          style={{
-            marginTop: `2rem`,
-          }}
-        >
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.com">Gatsby</a>
-        </footer>
+        
+        <Footer data={edges}>
+        Website in React by ROCA-IT. Email us to ask anything. © {new Date().getFullYear()}
+        </Footer>
     </div>
   )
 }

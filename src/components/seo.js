@@ -18,6 +18,7 @@ function Seo({ description, lang, meta, title }) {
           siteMetadata {
             title
             description
+            keywords
             author
           }
         }
@@ -25,8 +26,9 @@ function Seo({ description, lang, meta, title }) {
     `
   )
 
-  const metaDescription = description || site.siteMetadata.description
-  const defaultTitle = site.siteMetadata?.title
+  const metaDescription = description || site.siteMetadata.description;
+  const defaultTitle = site.siteMetadata?.title;
+  const keywords = site.siteMetadata.keywords;
 
   return (
     <Helmet
@@ -40,6 +42,11 @@ function Seo({ description, lang, meta, title }) {
           name: `description`,
           content: metaDescription,
         },
+        {
+          name: `keywords`,
+          content: keywords,
+        },
+
         {
           property: `og:title`,
           content: title,
